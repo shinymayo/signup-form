@@ -3,13 +3,22 @@
     <head>
        <meta charset="utf-8">
         <title>Sign Up Form</title>
+        <!-- link to external fonts, must be before the css file -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css" /> 
     </head>
     <body>
-        <div class="left">
-            <div class="heading">
-                <img src="./odin-lined.png" alt="odin icon" width="100rem">
-                <h1>Odin</h1>
+        <div class="picture">
+            <div class="left">
+                <div class="heading">
+                    <img src="./odin-lined.png" alt="odin icon" width="100rem">
+                    <h1 id="odin">Odin</h1>
+                </div>
+            </div>
+            <div class="foot">
+                Photo by <a href="https://unsplash.com/@alexkixa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" class="reference">Alexandre Debiève</a> on <a href="https://unsplash.com/photos/lighted-open-door-train-opjZGpqfVUU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" class="reference">Unsplash</a>
             </div>
         </div>
         <div class="right">
@@ -19,9 +28,12 @@
                 <p>You <i>know</i> you want to.</p>
             </div>
             <div class="form">
-                <form>
-                    <p>Let's do this!</p>
+                <form action="" method="post" id="form">
+                    
                     <ul>
+                        <li class="paragraph">
+                            <label>Let's do this!</label>
+                        </li>
                         <li>
                             <label for="first_name">FIRST NAME</label>
                             <input type="text" id="first_name" name="first_name" placeholder="Thor">
@@ -47,11 +59,13 @@
                             <input type="password" id="validate_password" name="validate_password" required>
                         </li>
                     </ul>
-                    <button type="submit">Create Account</button>
-                    <p>Already have an account? <span>Log in</span></p>
                 </form>
+                <div class="bottom">
+                    <button type="submit">Create Account</button>
+                    <p>Already have an account? <a href="">Log in</a></p>
+                </div>
             </div>
-            sky Photo by <a href="https://unsplash.com/@vsnth?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">VASANTH .</a> on <a href="https://unsplash.com/photos/black-mountain-under-white-clouds-and-blue-sky-SvLiRk1wE2s?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+        
         </div>
     </body>
 </html>
