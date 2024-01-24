@@ -32,31 +32,37 @@
                     
                     <ul>
                         <li class="paragraph">
-                            <label>Let's do this!</label>
+                            <label class="paragraph-text">Let's do this!</label>
                         </li>
                         <li>
-                            <label for="first_name">FIRST NAME</label>
+                            <label for="first_name" class="smaller-label">*FIRST NAME</label>
                             <input type="text" id="first_name" name="first_name" placeholder="Thor">
+                            <span class="first_name_error error"></span>
                         </li>
                         <li>
-                            <label for="last_name">LAST NAME</label>
+                            <label for="last_name" class="smaller-label">LAST NAME</label>
                             <input type="test" id="last_name" name="last_name" placeholder="Odinson">
+                            <span class="last_name_error error"></span>
                         </li>
                         <li>
-                            <label for="email">EMAIL</label>
-                            <input type="email" id="email" name="email">
+                            <label for="email" class="smaller-label">*EMAIL</label>
+                            <input type="email" id="email" name="email" placeholder="thor@top.com">
+                            <span class="email_error error"></span>
                         </li>
                         <li>
-                            <label for="phone_number">PHONE NUMBER</label>
-                            <input type="tel" id="phone_number" name="telephone_number">
+                            <label for="phone_number" class="smaller-label">PHONE NUMBER</label>
+                            <input type="tel" id="phone_number" name="telephone_number" placeholder="+12 1234 56789">
+                            <span class="phone_number_error error"></span>
                         </li>
                         <li>
-                            <label for="password">PASSWORD</label>
-                            <input type="password" id="password" name="password" required>
+                            <label for="password" class="smaller-label">*PASSWORD</label>
+                            <input type="password" id="password" name="password" minlength="6" maxlength="15">
+                            <span class="password_error error"></span>
                         </li>
                         <li>
-                            <label for="validate_password">CONFIRM PASSWORD</label>
-                            <input type="password" id="validate_password" name="validate_password" required>
+                            <label for="validate_password" class="smaller-label">*CONFIRM PASSWORD</label>
+                            <input type="password" id="validate_password" name="validate_password" minlength="6" maxlength="15" required>
+                            <span class="validate_password_error error"></span>
                         </li>
                     </ul>
                 </form>
@@ -65,7 +71,43 @@
                     <p>Already have an account? <a href="">Log in</a></p>
                 </div>
             </div>
-        
         </div>
+        <script>
+            const pass = document.querySelector("#password");
+            const confirmPass = document.querySelector("#validate_password");
+            const fName = document.querySelector("#first_name");
+            const lName = document.querySelector("#last_name");
+            const email = document.querySelector("#email");
+            const phone = document.querySelector("#phone_number");
+
+            const passError = document.querySelector(".password_error");
+            const confirmPassError = document.querySelector(".validate_password_error");
+            const fNameError = document.querySelector(".first_name_error");
+            const lNameError = document.querySelector(".last_name_error");
+            const emailError = document.querySelector(".email_error");
+            const phoneError = document.querySelector(".phone_number_error");
+
+            fName.addEventListener("input", function (e) {
+                if (fName.value === "") {
+                    fNameError.textContent = "Please insert your first name";
+                } else {
+                    fNameError.textContent = "";
+                }
+            })
+            lName.addEventListener("input", function (e) {
+                if (lName.value === "") {
+                    lNameError.textContent = "Please insert your last name";
+                } else {
+                    lNameError.textContent = "";
+                }
+            })
+            emailError.addEventListener("input", function (e) {
+                if (email.validity.typeMismatch) {
+                    emailError.textContent = "Please insert your email";
+                } else {
+                    emailError.textContent = "";
+                }
+            })
+        </script>
     </body>
 </html>
