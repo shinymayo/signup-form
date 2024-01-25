@@ -28,7 +28,7 @@
                 <p>You <i>know</i> you want to.</p>
             </div>
             <div class="form">
-                <form action="/" method="post" id="form">
+                <form id="form">
                     
                     <ul>
                         <li class="paragraph">
@@ -46,7 +46,7 @@
                         </li>
                         <li>
                             <label for="email" class="smaller-label">*EMAIL</label>
-                            <input type="email" id="email" name="email" placeholder="thor@top.com">
+                            <input type="email" id="email" name="email" placeholder="thor@top.com" >
                             <span class="email_error error"></span>
                         </li>
                         <li>
@@ -56,18 +56,18 @@
                         </li>
                         <li>
                             <label for="password" class="smaller-label">*PASSWORD</label>
-                            <input type="password" id="password" name="password" minlength="6" maxlength="15">
+                            <input type="password" id="password" name="password" minlength="6" pattern="[a-zA-Z0-9]{6,}" title="Must be at least 6 characters" required>
                             <span class="password_error error"></span>
                         </li>
                         <li>
                             <label for="validate_password" class="smaller-label">*CONFIRM PASSWORD</label>
-                            <input type="password" id="validate_password" name="validate_password" minlength="6" maxlength="15" required>
+                            <input type="password" id="validate_password" name="validate_password" minlength="6" required>
                             <span class="validate_password_error error"></span>
                         </li>
                     </ul>
                 </form>
                 <div class="bottom">
-                    <button type="submit">Create Account</button>
+                    <button type="submit" form="form">Create Account</button>
                     <p>Already have an account? <a href="">Log in</a></p>
                 </div>
             </div>
@@ -89,23 +89,32 @@
 
             fName.addEventListener("input", function (e) {
                 if (fName.value === "") {
-                    fNameError.textContent = "Please insert your first name";
+                    fNameError.textContent = "First name is missing";
                 } else {
                     fNameError.textContent = "";
                 }
             })
             lName.addEventListener("input", function (e) {
                 if (lName.value === "") {
-                    lNameError.textContent = "Please insert your last name";
+                    lNameError.textContent = "Last name is missing";
                 } else {
                     lNameError.textContent = "";
                 }
             })
             email.addEventListener("input", function (e) {
                 if (email.validity.typeMismatch) {
-                    emailError.textContent = "Please insert your email";
+                    emailError.textContent = "Check your email is correct";
                 } else {
                     emailError.textContent = "";
+                }
+            })
+            confirmPass.addEventListener("input", function (e) {
+                if (confirmPass.value === "") {
+                    confirmPassError.textContent = "Please confirm your password";
+                } else if (confirmPass.value !== pass.value) {
+                    confirmPassError.textContent = "Passwords do not match";
+                } else {
+                    confirmPassError.textContent = "";
                 }
             })
 
