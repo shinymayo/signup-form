@@ -90,6 +90,7 @@
             fName.addEventListener("input", function (e) {
                 if (fName.value === "") {
                     fNameError.textContent = "First name is missing";
+                    fName.classList.add("show-error");
                 } else {
                     fNameError.textContent = "";
                 }
@@ -97,6 +98,7 @@
             lName.addEventListener("input", function (e) {
                 if (lName.value === "") {
                     lNameError.textContent = "Last name is missing";
+                    lName.classList.add("show-error");
                 } else {
                     lNameError.textContent = "";
                 }
@@ -104,15 +106,24 @@
             email.addEventListener("input", function (e) {
                 if (email.validity.typeMismatch) {
                     emailError.textContent = "Check your email is correct";
+                    email.classList.add("show-error");
                 } else {
                     emailError.textContent = "";
+                }
+            })
+            pass.addEventListener("input", function (e) {
+                if (pass.value < 6) {
+                    pass.classList.add("show-error");
                 }
             })
             confirmPass.addEventListener("input", function (e) {
                 if (confirmPass.value === "") {
                     confirmPassError.textContent = "Please confirm your password";
+                    confirmPass.classList.add("show-error");
                 } else if (confirmPass.value !== pass.value) {
                     confirmPassError.textContent = "Passwords do not match";
+                    confirmPass.classList.add("show-error");
+                    pass.classList.add("show-error");
                 } else {
                     confirmPassError.textContent = "";
                 }
