@@ -28,7 +28,7 @@
                 <p>You <i>know</i> you want to.</p>
             </div>
             <div class="form">
-                <form action="" method="post" id="form">
+                <form action="/" method="post" id="form">
                     
                     <ul>
                         <li class="paragraph">
@@ -73,12 +73,12 @@
             </div>
         </div>
         <script>
-            const pass = document.querySelector("#password");
-            const confirmPass = document.querySelector("#validate_password");
-            const fName = document.querySelector("#first_name");
-            const lName = document.querySelector("#last_name");
-            const email = document.querySelector("#email");
-            const phone = document.querySelector("#phone_number");
+            const pass = document.getElementById("password");
+            const confirmPass = document.getElementById("validate_password");
+            const fName = document.getElementById("first_name");
+            const lName = document.getElementById("last_name");
+            const email = document.getElementById("email");
+            const phone = document.getElementById("phone_number");
 
             const passError = document.querySelector(".password_error");
             const confirmPassError = document.querySelector(".validate_password_error");
@@ -101,13 +101,14 @@
                     lNameError.textContent = "";
                 }
             })
-            emailError.addEventListener("input", function (e) {
+            email.addEventListener("input", function (e) {
                 if (email.validity.typeMismatch) {
                     emailError.textContent = "Please insert your email";
                 } else {
                     emailError.textContent = "";
                 }
             })
+
         </script>
     </body>
 </html>
